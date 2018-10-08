@@ -196,7 +196,7 @@ namespace HyperCube
 
 		// Returns the index of the incident cube that is the source
 		template< unsigned int K >
-		static typename Cube< D >::template IncidentCubeIndex< K > IncidentCube( Element< K > e );
+		static typename Cube< D >::template IncidentCubeIndex< K > IncidentCube( Element< K > e ) { return _IncidentCube( e ); }
 
 		// Returns the corresponding element in the incident cube
 		template< unsigned int K >
@@ -528,8 +528,9 @@ namespace HyperCube
 		}
 	}
 
-	template< unsigned int D > template< unsigned int K >
-	typename Cube< D >::template IncidentCubeIndex< K > Cube< D >::IncidentCube( Element< K > e ){ return _IncidentCube( e ); }
+	//template< unsigned int D > template< unsigned int K >
+	//typename Cube< D >::template IncidentCubeIndex< K > Cube< D >::IncidentCube( Element< K > e ){ return _IncidentCube( e ); }
+
 	template< unsigned int D > template< unsigned int K , unsigned int _D >
 #ifdef _MSC_VER
 	typename std::enable_if< _D==K , typename Cube< D >::IncidentCubeIndex< K > >::type Cube< D >::_IncidentCube( Element< K > e ){ return IncidentCubeIndex< D >(); }
